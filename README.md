@@ -17,7 +17,8 @@ whatsapp-server/
 │   └── tools/
 │       ├── connectWhatsappTool.ts    ← Outil : se connecter à WhatsApp Web
 │       ├── listChatsTool.ts          ← Outil : lister les discussions
-│       └── sendMessageTool.ts        ← Outil : envoyer un message
+│       ├── sendMessageTool.ts        ← Outil : envoyer un message
+│       └── readMessageTool.ts        ← Outil : lire les messages
 ├── assets/                           ← Screenshots README
 ├── .gitignore                        ← Protège session, .env, configs perso
 ├── eslint.config.js
@@ -34,7 +35,8 @@ AI (Claude/Antigravity)
 whatsapp-mcp-server (FastMCP)
   ├── ConnectWhatsappTool
   ├── ListChatsTool
-  └── SendMessageTool
+  ├── SendMessageTool
+  └── ReadMessageTool
         │ shared singleton
         ▼
   WhatsappService
@@ -125,6 +127,16 @@ Demande à l'IA :
 
 ---
 
+### Étape 4 — Lire les messages
+
+Demande à l'IA :
+
+> _"Lis les derniers messages de [Nom du contact] sur WhatsApp"_
+
+L'outil `read_messages` extrait l'historique récent avec l'expéditeur et l'horodatage.
+
+---
+
 ## 🛡️ Anti-Ban — Comportement Humain
 
 | Protection              | Détail                                                        |
@@ -165,6 +177,15 @@ Envoie un message à un contact ou groupe.
 | ---------- | ------ | ------ | ------------------------------- |
 | `chatName` | string | ✅     | Nom exact du contact ou groupe. |
 | `message`  | string | ✅     | Contenu du message à envoyer.   |
+
+### `read_messages`
+
+Lit les messages récents d'une discussion spécifique.
+
+| Paramètre  | Type   | Requis | Description                                    |
+| ---------- | ------ | ------ | ---------------------------------------------- |
+| `chatName` | string | ✅     | Nom exact du contact ou groupe.                |
+| `limit`    | number | 10     | Nombre de messages à récupérer (max visibles). |
 
 ---
 

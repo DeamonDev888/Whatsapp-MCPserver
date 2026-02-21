@@ -6,6 +6,7 @@ import { FastMCP } from "fastmcp";
 import { ConnectWhatsappTool } from "./tools/connectWhatsappTool.js";
 import { ListChatsTool } from "./tools/listChatsTool.js";
 import { SendMessageTool } from "./tools/sendMessageTool.js";
+import { ReadMessageTool } from "./tools/readMessageTool.js";
 
 console.log = (...args: any[]) => {
   process.stderr.write(`${args.join(" ")}\n`);
@@ -25,6 +26,7 @@ const server = new FastMCP({
 new ConnectWhatsappTool(server).register();
 new ListChatsTool(server).register();
 new SendMessageTool(server).register();
+new ReadMessageTool(server).register();
 
 async function cleanup() {
   console.log("Cleaning up Whatsapp MCP Server...");

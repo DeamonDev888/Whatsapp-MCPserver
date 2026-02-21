@@ -42,7 +42,7 @@ export class SendMessageTool {
               await p.waitForSelector(sel, { timeout: 3000 });
               searchInput = sel;
               break;
-            } catch { continue; }
+            } catch (_) { continue; }
           }
           
           if (!searchInput) throw new Error("Search input not found. Make sure WhatsApp Web is loaded.");
@@ -60,7 +60,7 @@ export class SendMessageTool {
           await this.service.delay(300, 800);
           await p.type(searchInput, chatName, { delay: Math.floor(Math.random() * 200) + 100 });
           
-          // Wait for search results — try span[title] or any visible result
+          // Wait for search results ??? try span[title] or any visible result
           await this.service.delay(1500, 3000);
           
           // Try clicking on the result
@@ -83,7 +83,7 @@ export class SendMessageTool {
                   break;
                 }
               }
-            } catch { continue; }
+            } catch (_) { continue; }
           }
           
           if (!clicked) {
@@ -110,7 +110,7 @@ export class SendMessageTool {
               await p.waitForSelector(sel, { timeout: 3000 });
               msgInput = sel;
               break;
-            } catch { continue; }
+            } catch (_) { continue; }
           }
           
           if (!msgInput) throw new Error("Message input not found after opening chat.");
@@ -121,9 +121,9 @@ export class SendMessageTool {
           await this.service.delay(400, 1000);
           await p.keyboard.press('Enter');
           
-          return `✅ Message sent to "${chatName}" successfully.`;
+          return `??? Message sent to "${chatName}" successfully.`;
         } catch (error: any) {
-          return `❌ Error sending message: ${error.message || String(error)}`;
+          return `??? Error sending message: ${error.message || String(error)}`;
         }
       },
     });

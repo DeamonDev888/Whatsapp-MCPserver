@@ -27,7 +27,7 @@ export class WhatsappService {
   public async connect(headless: boolean = false): Promise<string> {
     // Close existing browser to avoid "WhatsApp ouvert dans une autre fenêtre" conflict
     if (this.browser) {
-      try { await this.browser.close(); } catch (_) {}
+      try { await this.browser.close(); } catch {}
       this.browser = null;
       this.page = null;
     }
@@ -61,7 +61,7 @@ export class WhatsappService {
         if (useHere) (useHere as HTMLElement).click();
       });
       await this.delay(1500, 2500);
-    } catch (_) {
+    } catch {
       // Dialog not present — that's fine
     }
 

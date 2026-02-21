@@ -52,7 +52,7 @@ export class ReadMessageTool {
                 await p.waitForSelector(sel, { timeout: 3000 });
                 searchInput = sel;
                 break;
-              } catch (_) { continue; }
+              } catch { continue; }
             }
 
             if (!searchInput) throw new Error("Search input not found. Make sure WhatsApp Web is loaded.");
@@ -92,7 +92,7 @@ export class ReadMessageTool {
                   }
                 }
                 if (clicked) break;
-              } catch (_) { continue; }
+              } catch { continue; }
             }
 
             if (!clicked) {

@@ -1,0 +1,36 @@
+# 🔒 Données personnelles & Session
+whatsapp_session/       # Session WhatsApp (cookies, tokens, profil Chrome)
+.env                    # Variables d'environnement (API keys, numéros, etc.)
+.env.*
+*.local
+
+# 📦 Build & dépendances
+node_modules/
+dist/
+
+# 🗄️ Logs & fichiers temporaires
+logs/
+*.log
+*.tmp
+*.cache
+
+# 📸 Screenshots de debug personnels (conserver seulement assets/)
+.screenshots/
+debug_*.png
+failed_*.png
+
+# 🔧 Éditeur & OS
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# 🔐 Fichiers MCP de config privée
+mcp_config.json
+.mcp.json
+settings.json
+.claude/
+
+# 📦 Lock files alternatifs (on garde pnpm-lock.yaml)
+package-lock.json
+yarn.lock
